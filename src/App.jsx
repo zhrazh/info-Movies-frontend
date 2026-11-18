@@ -1,10 +1,28 @@
+
+import { useState } from 'react';
+
 import './App.css';
 
 import Header from './components/header';
 import WelcomeBanner from './components/welcomeBanner';
 import MovieStats from './components/movieStats';
+import MovieList from './components/movieList';
+
+import initialMovies from './data/movies';
 
 function App() {
+  const [movies] = useState(initialMovies);
+
+  const averageRating = movies.length
+    ? movies.reduce((total, movie) => total + movie.rating, 0) / movies.length
+    : 0;
+
+  const topRatedMovie = movies.length
+    ? movies.reduce((top, movie) =>
+      movie.rating > top.rating ? movie : top
+    ).title
+    : '-';
+
   return (
     <>
       <Header />
@@ -13,18 +31,12 @@ function App() {
         <WelcomeBanner />
 
         <MovieStats
-          totalMovies={8}
-          averageRating={8.25}
-          topRatedMovie="The Dark Knight"
+          totalMovies={movies.length}
+          averageRating={averageRating}
+          topRatedMovie={topRatedMovie}
         />
 
-        <section id="movie-catalog" className="catalog-placeholder">
-          <h2>Movie Catalog</h2>
-          <p>
-            Explore your favorite movies. Movie collection
-            will be displayed here.
-          </p>
-        </section>
+        <MovieList movies={movies} />
       </main>
 
       <footer>
