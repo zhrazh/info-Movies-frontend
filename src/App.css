@@ -520,3 +520,129 @@
     padding: 20px;
   }
 }
+
+
+/* =================================
+   FINAL RESPONSIVE DESIGN
+================================= */
+
+/* Tablet */
+
+@media (max-width: 992px) {
+  .movie-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .movie-stats .stat-card:last-child {
+    grid-column: span 2;
+  }
+
+  .movie-card-poster {
+    height: 200px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  main {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  #mainHeader {
+    gap: 12px;
+    padding: 15px;
+  }
+
+  #mainHeader nav {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 5px;
+  }
+
+  #mainHeader nav .nav-link {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+
+  .movie-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-stats .stat-card:last-child {
+    grid-column: auto;
+  }
+
+  .movie-card-copy h3 {
+    min-height: auto;
+  }
+
+  .movie-synopsis {
+    min-height: auto;
+  }
+}
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+  #appBranding {
+    font-size: 1.5rem;
+  }
+
+  #dashboard.welcome-banner {
+    padding: 20px;
+  }
+
+  .welcome-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .stat-card {
+    padding: 17px;
+  }
+
+  .movie-form-section,
+  .search-section {
+    padding: 18px;
+  }
+
+  .catalog-heading h2,
+  .form-heading h2,
+  .search-heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .movie-card-poster {
+    height: 190px;
+  }
+}
+
+/* Accessibility */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Smooth navigation */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

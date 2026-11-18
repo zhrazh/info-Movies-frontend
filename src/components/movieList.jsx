@@ -22,9 +22,7 @@ function MovieList({
             </div>
 
             {movies.length > 0 ? (
-
                 <div className="row g-4">
-
                     {movies.map((movie, index) => (
                         <MovieCard
                             key={movie.id}
@@ -38,21 +36,19 @@ function MovieList({
                             }
                         />
                     ))}
-
                 </div>
-
             ) : (
-
                 <div className="empty-state">
                     <span>🎬</span>
 
                     <h3>{emptyMessage}</h3>
 
                     <p>
-                        Silakan ubah kata pencarian atau filter genre.
+                        {emptyMessage === 'Belum ada data film'
+                            ? 'Tambahkan film baru melalui form di atas.'
+                            : 'Coba gunakan kata kunci atau genre yang berbeda.'}
                     </p>
                 </div>
-
             )}
 
         </section>
