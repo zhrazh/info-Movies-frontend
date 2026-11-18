@@ -7,14 +7,26 @@ import Header from './components/header';
 import WelcomeBanner from './components/welcomeBanner';
 import MovieStats from './components/movieStats';
 import MovieList from './components/movieList';
+import MovieForm from './components/movieForm';
 
 import initialMovies from './data/movies';
 
 function App() {
-  const [movies] = useState(initialMovies);
+
+  const [movies, setMovies] = useState(initialMovies);
+
+  function handleAddMovie(newMovie) {
+    setMovies((previousMovies) => [
+      newMovie,
+      ...previousMovies
+    ]);
+  }
 
   const averageRating = movies.length
-    ? movies.reduce((total, movie) => total + movie.rating, 0) / movies.length
+    ? movies.reduce(
+      (total, movie) => total + movie.rating,
+      0
+    ) / movies.length
     : 0;
 
   const topRatedMovie = movies.length
@@ -28,6 +40,7 @@ function App() {
       <Header />
 
       <main>
+
         <WelcomeBanner />
 
         <MovieStats
@@ -36,7 +49,10 @@ function App() {
           topRatedMovie={topRatedMovie}
         />
 
+        <MovieForm onAddMovie={handleAddMovie} />
+
         <MovieList movies={movies} />
+
       </main>
 
       <footer>

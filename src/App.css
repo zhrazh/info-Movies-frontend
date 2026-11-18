@@ -286,3 +286,128 @@
 .empty-state p {
   margin-bottom: 0;
 }
+
+
+/* Movie Form Section */
+
+.movie-form-section {
+  margin-top: 35px;
+  padding: 28px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.form-heading {
+  margin-bottom: 24px;
+}
+
+.form-heading h2 {
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.form-heading p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.movie-form {
+  margin-top: 20px;
+}
+
+.movie-form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #dce3ed;
+  font-size: 0.93rem;
+  font-weight: 600;
+}
+
+.movie-form-control {
+  padding: 12px 14px;
+  color: var(--text);
+  background: #0f1724;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.movie-form-control::placeholder {
+  color: #78869b;
+}
+
+.movie-form-control:focus {
+  color: var(--text);
+  background: #0f1724;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.2rem rgba(246, 183, 93, 0.15);
+}
+
+.movie-form-control option {
+  color: var(--text);
+  background: #151c29;
+}
+
+.form-hint {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.movie-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.movie-form-actions .btn {
+  padding: 10px 20px;
+  font-weight: 700;
+  border-radius: 9px;
+}
+
+.movie-form-actions .btn-warning {
+  color: #21170a;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.movie-form-actions .btn-warning:hover {
+  background: var(--accent-light);
+  border-color: var(--accent-light);
+}
+
+.form-success {
+  margin-top: 18px;
+  margin-bottom: 0;
+  padding: 12px 15px;
+  color: #8ee2ae;
+  background: rgba(35, 150, 85, 0.12);
+  border: 1px solid rgba(35, 150, 85, 0.3);
+  border-radius: 9px;
+}
+
+#movie-form {
+  scroll-margin-top: 25px;
+}
+
+/* Responsive Movie Form */
+
+@media (max-width: 576px) {
+  .movie-form-section {
+    padding: 20px;
+  }
+
+  .movie-form-actions {
+    flex-direction: column;
+  }
+
+  .movie-form-actions .btn {
+    width: 100%;
+  }
+}
